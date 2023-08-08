@@ -8,6 +8,7 @@
       "ecmaVersion": 2022, // Specifying a specific ECMAScript version
       "sourceType": "module"
     },
+    "ignorePatterns": ["node_modules/", "dist/**/*.js"],
     "rules": {
       "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/explicit-function-return-type": "off",

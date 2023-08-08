@@ -17,7 +17,6 @@
     "start": "nodemon dist/index.js",
     "lint": "eslint src/**/*.ts"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
