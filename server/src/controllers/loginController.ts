@@ -19,7 +19,7 @@ export const loginRoutes = async (req: Request, res: Response) => {
     res.json({ message: "Login successful" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(404).json({ message: "Internal server error" });
   }
 };
 
@@ -38,7 +38,7 @@ export const registerRoutes = async (req: Request, res: Response) => {
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(404).json({ message: "Internal server error" });
   }
 };
 
@@ -48,6 +48,6 @@ export const getUsers = async (req: Request, res: Response) => {
     res.json(users);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(404).json({ message: "Internal server error" });
   }
 };

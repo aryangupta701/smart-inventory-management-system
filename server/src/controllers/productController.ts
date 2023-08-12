@@ -18,7 +18,7 @@ export const addProduct = async (req: Request, res: Response) => {
     res.status(201).json({ message: "Product added successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(404).json({ message: "Internal server error" });
   }
 };
 
@@ -28,7 +28,7 @@ export const getProducts = async (req: Request, res: Response) => {
     res.json(products);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(404).json({ message: "Internal server error" });
   }
 };
 
@@ -44,7 +44,7 @@ export const deleteProduct = async (req: Request, res: Response) => {
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(404).json({ message: "Internal server error" });
   }
 };
 
@@ -60,6 +60,6 @@ export const updateProduct = async (req: Request, res: Response) => {
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(404).json({ message: "Internal server error" });
   }
 };
