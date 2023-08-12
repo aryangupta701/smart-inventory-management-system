@@ -38,7 +38,7 @@ services:
       - MONGODB_HOST=mongo
       - MONGODB_PORT=27017
       - DATABASE_NAME=db
-      - PORT=3000
+      - PORT=3001
       - CHOKIDAR_USEPOLLING="true"
     ports:
       - 3001:3001
