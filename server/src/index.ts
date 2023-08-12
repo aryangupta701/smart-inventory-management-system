@@ -3,7 +3,6 @@ import router from "./router";
 import mongoose, { ConnectOptions } from "mongoose";
 
 const app = express();
-require("dotenv").config();
 app.use(express.json());
 app.use("/", router);
 
