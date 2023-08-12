@@ -46,8 +46,8 @@ export const deleteProduct = async (req: Request, res: Response) => {
 
 export const updateProduct = async (req: Request, res: Response) => {
   try {
-    const { Name, Stock } = req.body;
-    const products = await Product.find({ Name });
+    const { _id, Name, Stock } = req.body;
+    const products = await Product.find({ _id });
     if (products.length == 0) {
       return res.status(401).json({ message: "Product not found" });
     } else {
