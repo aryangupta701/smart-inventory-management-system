@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import Product from "../schema/productSchema";
+import axios from "axios";
 
 export const addProduct = async (req: Request, res: Response) => {
   try {
@@ -61,5 +62,18 @@ export const updateProduct = async (req: Request, res: Response) => {
   } catch (error) {
     console.error(error);
     res.status(404).json({ message: "Internal server error" });
+  }
+};
+
+export const predictProduct = async (req: Request, res: Response) => {
+  try {
+    const response = await axios.post(
+      "http://model:8000/predictSales",
+      req.body,
+    );
+
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
   }
 };
