@@ -1,0 +1,58 @@
+.nameLabel{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.input{
+    display: flex;
+    width: auto;
+    padding-left: 8px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px;
+    border-color: blue;
+    border-width: 1px;
+}
+.nameInputContainer{
+    display: flex;
+    flex-direction: column;
+
+}
+.inputContainer{
+    margin-bottom: 10px;
+}
+.searchInput{
+   
+    height: 40px;
+    padding-left: 35px;
+   
+    border-radius: 10px;
+    margin-block: 20px;
+    margin-inline: 7vh;
+    width: 40vh;
+    border-radius: 4;
+    border: 1px;
+
+}
+.searchIcon{
+   display: flex;
+    position: absolute;
+    margin-left: 8vh;
+}
+.navBarContainer{
+    align-items:center ;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    width: 95%;
+
+}
+.profilePic{
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    margin-left: 15px;
+}
+.navRightBars{
+    right: 30px;
+}
