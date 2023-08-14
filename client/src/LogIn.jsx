@@ -49,6 +49,7 @@ function LogIn() {
           <input
             className="input"
             label="Password"
+            type="password"
             placeholder="Enter Password"
             onChange={(e) => setPassword(e.target.value)}
           />

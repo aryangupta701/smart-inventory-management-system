@@ -50,6 +50,7 @@ function SignUp() {
           <input
             className="input"
             label="Password"
+            type="password"
             placeholder="Enter Password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
@@ -62,7 +63,7 @@ function SignUp() {
           </button>
           <div className="signUpBar">
             <p className="accountTxt"> Already have an account?</p>
-            <Link to="/login">
+            <Link to="/">
               <a className="signUpText">Log in</a>
             </Link>
           </div>
