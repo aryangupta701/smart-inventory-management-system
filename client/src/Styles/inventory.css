@@ -1,0 +1,151 @@
+.mainContainer{
+    display: flex;
+    background-color: #F0F1F3;
+    height: 100vh;
+    width: 100%;
+}
+.navBar{
+    display: flex;
+    width: 100%;
+    height: 90px;
+    background-color: #FFFFFF;
+    margin-left: 2px;
+}
+.overallInventorySection{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-block: 10px;
+    margin-inline: 20px;
+    background-color: #FFFFFF;
+    padding-inline: 15px;
+    border-radius: 7px;
+    height: 120px;
+    padding-bottom: 15px;
+
+}
+.rightBar{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.inventoryMap{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: -30px;
+}
+.categoriesMap{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 15%;
+}
+.inventoryInnerItem{
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -15px;
+}
+.qualityDaysdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.priceTypediv{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.categoroesTxt{
+    margin-top: -15px;
+    display: flex;
+    flex-direction: column;
+}
+.productSection{
+    background-color: #FFFFFF;
+    margin-inline: 20px;
+    width: 100%;
+    border-radius: 7px;
+    height: 65%;
+    margin-bottom: 200px;
+}
+.productNavBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    
+    align-items: center;
+    padding-inline: 15px;
+}
+.buttonSection{
+    width: 30%;   
+}
+.addProductBtn{
+    background-color: #1366D9;
+    justify-content: center;
+    align-items: center;
+    border: 1px;
+    border-radius: 4px;
+    height: 40px;
+    width: 30%;
+    margin-inline: 5px;
+    color: #FFFFFF;
+}
+.filterBtn{
+    justify-content: center;
+    align-items: center;
+    border: 1px;
+    border-radius: 4px;
+    height: 40px;
+    width: 30%;
+    margin-inline: 5px;
+
+}
+.filterImg{
+    height: 15px;
+    width: 15px;
+    margin-inline: 5px;
+    justify-self: flex-start;
+    align-self: center;
+}
+.listHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-inline: 15px;
+    justify-content: space-between;
+    margin-block: 10px;
+    height: 25px;
+}
+.productMap{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-inline: 15px;
+    padding-block: 5px;
+    justify-content: space-between;
+    margin-block: 2px;
+    height: 30px;
+    align-items: center;
+}
+.bottomBar{
+    width: 100%;
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline: 15px;
+    margin-block: 15px;
+    align-items: center;
+    align-self: flex-end;
+    align-content: flex-end;
+}
+.line{
+    background-color: #F0F1F3;
+    width: 100%;
+    height: 2px;
+}

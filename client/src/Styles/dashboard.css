@@ -1,0 +1,234 @@
+.dashboardContainer{
+    display: flex;
+    background-color: #F0F1F3;
+    height: 100vh;
+    width: 100%;
+   
+}
+
+.leftBar{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+    flex: 0.15;
+    height: 80vh;
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+   
+
+}
+.topSideBarContainer{
+    margin-top: -50px;
+   
+    width: 20vh;
+}
+.listItemDiv{
+    align-items: center;
+    margin-top: 10px;
+    display: flex;
+}
+.listItemImg{
+    margin-inline: 14px;
+    margin-block: 7px;
+} 
+.bottomItemDiv{
+  /* justify-content: flex-end; */
+    align-items: center;
+    display: flex;
+   
+}
+.bottomBarContainer{
+    display: flex;
+    width: 20vh;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-end;
+  
+}
+.rightBar{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.navBar{
+    display: flex;
+    width: 100%;
+    height: 90px;
+    background-color: #FFFFFF;
+    margin-left: 2px;
+}
+.SalesSection{
+    height: 150px;
+    width: 70%;
+    background-color: #FFFFFF;
+    padding-inline: 20px;
+    border-radius: 8px;
+    margin-inline: 30px;
+}
+.salesText{
+    color:  #383E49;
+    font-size: 20px;
+    font-weight: 500;
+}
+.salesItemDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    
+}
+.salesItemImg{
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-self: center;
+}
+.unitPriceSection{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    margin-inline: 20px;
+}
+.salesItemContainer{
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+}
+.saleInventoryArticle{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-block: 10px;
+}
+.inventorySection{
+    height: 150px;
+    width: 40%;
+    background-color: #FFFFFF;
+    padding-inline: 30px;
+    border-radius: 8px;
+    margin-right: 30px;
+}
+.productContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    height: 7vh;
+    width: 100%;
+margin-top: 10px;
+}
+.productImg{
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-self: center;
+}
+.ineventroyItemContainer{
+    display: flex;
+    flex-direction: row;
+    
+    /* flex-wrap: wrap; */
+}
+.barGraph{
+    height: 360px;
+    width: 70%;
+    background-color: crimson;
+    padding-inline: 20px;
+    border-radius: 8px;
+    margin-inline: 30px;
+}
+.curveGraph{
+    height: 360px;
+    width: 40%;
+    background-color: crimson;
+    padding-inline: 30px;
+    border-radius: 8px;
+    margin-right: 30px;
+}
+.topSellingSection{
+    height: 300px;
+    width: 70%;
+    background-color: #FFFFFF;
+    padding-inline: 20px;
+    border-radius: 8px;
+    margin-inline: 30px;
+    /* margin-bottom: 30px; */
+
+}
+.lowQuality{
+    height: 300px;
+    width: 40%;
+    background-color: #FFFFFF;
+    padding-inline: 30px;
+    border-radius: 8px;
+    margin-right: 30px;
+    /* margin-bottom: 30px; */
+}
+.sellingStockHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-inline: 10px;
+    width: 99%;
+    align-items: center;
+    margin-block: 10px;
+}
+.productHeaderBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-inline: 12px;
+    margin-block: 20px;
+}
+.lowStockContainer{
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    margin-inline: 10px;
+    width: 99%;
+    align-items: center;
+    margin-block: 5px;
+    /* background-color: magenta; */
+    height: 70px;
+    padding-right:10px ;
+}
+.imgNameSection{
+    display: flex;
+    flex-direction: row;
+}
+.lowStockDiscrption{
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    margin-left: 5px;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+.lowStockImg{
+    height: 60px;
+    width: 70px;
+    align-self: center;
+}
+.lowProductName{
+    /* background-color: violet; */
+}
+.lowProctQuantity{
+    margin-top: -5px;
+}
+.seeAllTxt{
+    color: #0F50AA;
+    font-size: 14px;
+    font-weight: 400;
+}
+.lowStockStatus{
+    font-size: 12;
+    font-weight:  500;
+    color: #AA3028;
+}
