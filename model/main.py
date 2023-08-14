@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 import joblib
-import numpy as np 
+import numpy as np
 
 app = FastAPI()
 Model = joblib.load('./random_forest_model.pkl')
+
 
 @app.get("/")
 def read_root():
@@ -11,19 +12,23 @@ def read_root():
 
 
 @app.post("/predictSales")
-def predict_sales(body):
+def predict_sales(body: dict):
     try:
-        input_val = np.array([
-        body["store"],
-        body["dept"],
-        body["isholiday"],
-        body["size"],
-        body["week"],
-        body["type"],
-        body["year"]
-        ])
-        pred = Model.predict(input_val)
-        return {"success": True, "predicted_sales":pred[0]}; 
+        numeric_data = []
+        for item in body["products"]:
+            numeric_item = [
+                int(item["store"]),
+                int(item["dept"]),
+                int(item["isholiday"]),
+                int(item["size"]),
+                int(item["week"]),
+                int(item["type"]),
+                int(item["year"])
+            ]
+            numeric_data.append(numeric_item)
+        input_array = np.array(numeric_data)
+        pred = Model.predict(input_array)
+        pred_list = pred.tolist()
+        return {"success": True, "predicted_sales": pred_list}
     except Exception as e:
         return {"success": False, "msg": e.__str__()}
-    

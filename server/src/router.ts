@@ -8,6 +8,7 @@ import {
   addProduct,
   deleteProduct,
   getProducts,
+  predictProduct,
   updateProduct,
 } from "./controllers/productController";
 
@@ -20,4 +21,5 @@ router.post("/product/add", addProduct);
 router.get("/product", getProducts);
 router.post("/product/update", updateProduct);
 router.delete("/product/delete", deleteProduct);
+router.post("/product/predict",predictProduct );
 export default router;

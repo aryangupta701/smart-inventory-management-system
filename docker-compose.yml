@@ -57,7 +57,8 @@ services:
       - mongo
       - model
     networks:
-       mongo_net:          
+       mongo_net:   
+       model_net:       
 
   mongo:
     image: mongo
@@ -79,8 +80,9 @@ services:
     container_name: model 
     ports: 
       - 8000:8000
-
-
+    networks:
+      model_net:
+      
 networks:
   mongo_net:
     driver: bridge
@@ -88,6 +90,8 @@ networks:
       config:
       - subnet: 172.16.0.0/24
         gateway: 172.16.0.254
+  model_net:
+    driver: bridge
 
 volumes:
   mongodb_data:
