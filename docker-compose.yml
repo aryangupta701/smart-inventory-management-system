@@ -55,6 +55,7 @@ services:
       - /app/node_modules
     depends_on:
       - mongo
+      - model
     networks:
        mongo_net:          
 
@@ -71,7 +72,14 @@ services:
     networks:
       mongo_net:
         ipv4_address: 172.16.0.1
-    command: mongod --bind_ip 127.0.0.1,172.16.0.1  
+    command: mongod --bind_ip 127.0.0.1,172.16.0.1 
+
+  model:
+    build: ./model
+    container_name: model 
+    ports: 
+      - 8000:8000
+
 
 networks:
   mongo_net:
