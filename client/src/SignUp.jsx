@@ -1,10 +1,32 @@
 import Logo from "../assets/Logo.png";
 import logoImg from "../assets/logoImg.png";
-import googleImg from "../assets/SocialIcon.png";
-import CustomInput from "../components/CustomInput";
 import "./Styles/Login.css";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function SignUp() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignUp = (username, password) => {
+    fetch("http://localhost:3001/register", {
+      method: "POST",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((res) => {
+      if (res.status === 201) {
+        window.location.href = "/login";
+      } else {
+        setPassword("");
+        setUsername("");
+        alert("Please Choose a different username");
+      }
+    });
+  };
+
   return (
     <div className="container">
       <div className="logoDiv">
@@ -15,29 +37,34 @@ function SignUp() {
           <img src={logoImg} className="formImg" />
           <section className="accountSection">
             <h3 className="createAccount">Create your account</h3>
-            <p className="trialText">Start your 30 days trial</p>
           </section>
-          <CustomInput label="Name" placeholder="Enter your name" />
-          <CustomInput label="Email*" placeholder="Enter Your Email" />
-          <CustomInput label="Password*" placeholder="Create a Password" />
-          <span className="passwordHighlite">
-            Must be at least 8 characters
-          </span>
-          {/* <div className="checkBoxLine">
-            <section className="checkBoxSection">
-              <input type="checkbox" />
-              <span className="rememberDaysTxt">Remember for 30 days</span>
-            </section>
-            <a className="forgotPasswordTxt">Forgot Password</a>
-          </div> */}
-          <button className="signInBtn">Sign In</button>
-          <button className="googleSignIn">
-            <img src={googleImg} className="googleImage" />
-            <span className="googleText">Sign In with Google</span>
+          <label className="nameLabel">Username </label>
+          <input
+            className="input"
+            label="Username"
+            placeholder="Enter Your Username"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+          />
+          <label className="nameLabel">Password </label>
+          <input
+            className="input"
+            label="Password"
+            placeholder="Enter Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <button
+            className="signInBtn"
+            onClick={handleSignUp.bind(this, username, password)}
+          >
+            Sign Up
           </button>
           <div className="signUpBar">
             <p className="accountTxt"> Already have an account?</p>
-            <a className="signUpText">Log in</a>
+            <Link to="/login">
+              <a className="signUpText">Log in</a>
+            </Link>
           </div>
         </div>
       </div>

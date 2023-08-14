@@ -1,10 +1,31 @@
 import "./Styles/Login.css";
 import Logo from "../assets/Logo.png";
 import logoImg from "../assets/logoImg.png";
-import googleImg from "../assets/SocialIcon.png";
-import CustomInput from "../components/CustomInput";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import "../components/components.css";
 
 function LogIn() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (username, password) => {
+    fetch("http://localhost:3001/login", {
+      method: "POST",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((res) => {
+      if (res.status === 201) {
+        window.location.href = "/dashboard";
+      } else {
+        alert("Invalid username or password");
+      }
+    });
+  };
+
   return (
     <div className="container">
       <div className="logoDiv">
@@ -17,23 +38,31 @@ function LogIn() {
             <h3 className="createAccount">Log in to your account</h3>
             <p className="trialText">Welcome back! Please enter your details</p>
           </section>
-          <CustomInput label="Email" placeholder="Enter Your Email" />
-          <CustomInput label="Password" placeholder="Enter Password" />
-          <div className="checkBoxLine">
-            <section className="checkBoxSection">
-              <input type="checkbox" />
-              <span className="rememberDaysTxt">Remember for 30 days</span>
-            </section>
-            <a className="forgotPasswordTxt">Forgot Password</a>
-          </div>
-          <button className="signInBtn">Sign In</button>
-          <button className="googleSignIn">
-            <img src={googleImg} className="googleImage" />
-            <span className="googleText">Sign In with Google</span>
+          <label className="nameLabel">Username </label>
+          <input
+            className="input"
+            label="Username"
+            placeholder="Enter Your Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label className="nameLabel">Password </label>
+          <input
+            className="input"
+            label="Password"
+            placeholder="Enter Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            className="signInBtn"
+            onClick={handleLogin.bind(this, username, password)}
+          >
+            Sign In
           </button>
           <div className="signUpBar">
             <p className="accountTxt"> Don't have a account?</p>
-            <a className="signUpText">Sign Up</a>
+            <Link to="/SignUp">
+              <a className="signUpText">Sign Up</a>
+            </Link>
           </div>
         </div>
       </div>

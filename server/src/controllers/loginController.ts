@@ -16,7 +16,7 @@ export const loginRoutes = async (req: Request, res: Response) => {
       return res.status(401).json({ message: "Authentication failed" });
     }
 
-    res.json({ message: "Login successful" });
+    res.status(201).json({ message: "Login successful" });
   } catch (error) {
     console.error(error);
     res.status(404).json({ message: "Internal server error" });
