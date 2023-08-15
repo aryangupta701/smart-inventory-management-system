@@ -21,8 +21,9 @@ import OnTheWay from "../assets/OnTheWay.png";
 import SupplierPro from "../assets/supplierProfile.png";
 import product1 from "../assets/product1.png";
 import product2 from "../assets/product2.png";
-import { useState } from "react";
-import SideBar from "../components/sideBar";
+import { useState, useEffect } from "react";
+import SideBar from "./sideBar";
+import React from "react";
 
 function listItem(item) {
   return (
@@ -219,6 +220,69 @@ function Dashboard() {
     },
   ]);
 
+  const [allProducts, setAllProducts] = useState([]);
+  const [loadModelData, setLoadModelData] = useState(false); 
+
+  function getProducts() {
+    fetch(`http://localhost:3001/product`, {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(),
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          setAllProducts(data);
+          setLoadModelData(true); 
+        });
+      } else {
+        alert("Something went wrong");
+      }
+    });
+  }
+
+  useEffect(()=>{
+    getProducts(); 
+  }, [])
+
+  const [predictedStock, setPredictedStock] = useState([])
+
+ function getModelPredictedData(products){
+
+    const data = {
+      products: products.map(item=>{
+        return {
+          ...item, 
+          isholiday: 0, 
+          week: 30,
+          year: 2023
+        }
+      })
+    }
+    fetch(`http://localhost:3001/product/predict`, {
+      method: "POST",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    }).then(res => {
+      if (res.status === 200) {
+        res.json().then((data) => { 
+          if(data.success === true){
+            console.log("success");
+            setPredictedStock(data.predicted_sales);
+            setLoadModelData(false);
+          }
+        });
+      } else {
+        alert("Something went wrong");
+      }
+    })
+  }
+
   return (
     <div className="dashboardContainer">
       <SideBar />
@@ -262,7 +326,33 @@ function Dashboard() {
         </article>
 
         <article className="saleInventoryArticle">
-          <section className="barGraph"></section>
+          <section className="barGraph">
+            <h2 className="forcast-heading">Forecasted Demand Trends: Rising and Falling</h2>
+          <div className="listHeader">
+            <span>Product Type</span>
+            <span>Store</span>
+            <span>Store Department</span>
+            <span>Product Stock</span>
+            <span>Predicted Stock</span>
+          </div>
+            {loadModelData && getModelPredictedData(allProducts)}
+
+
+            {(allProducts.length === predictedStock.length) && allProducts.map((item,index)=>{
+              return (
+              <>
+              <div className="productMap">
+                <span>{item.type}</span>
+                <span>{item.store}</span>
+                <span>{item.dept}</span>
+                <span>{item.size}</span>
+                <span>{parseInt(predictedStock[index], 10)}</span>
+              </div>
+              <div className="line"></div>
+              </>
+              )
+          })}
+          </section>
 
           <section className="curveGraph"></section>
         </article>

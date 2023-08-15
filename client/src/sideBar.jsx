@@ -1,3 +1,4 @@
+import React from "react";
 import "../src/Styles/dashboard.css";
 import LogoDash from "../assets/logoDash.png";
 import Home from "../assets/Home.png";
@@ -8,26 +9,33 @@ import Order from "../assets/Order.png";
 import ManageStore from "../assets/ManageStore.png";
 import LogOut from "../assets/LogOut.png";
 import Settings from "../assets/Settings.png";
-
-function listItem(item) {
-  return (
-    <div className="listItemDiv">
-      <img src={item.img} className="listItemImg" />
-      <span className="listItemText">{item.title}</span>
-    </div>
-  );
-}
-
-const bottomBarItems = (item) => {
-  return (
-    <div className="bottomItemDiv">
-      <img src={item.img} className="listItemImg" />
-      <span>{item.title} </span>
-    </div>
-  );
-};
+import { useNavigate } from "react-router-dom";
 
 function SideBar() {
+  const navigate = useNavigate(); 
+  const handleClickOnSideBarItem = (name)=>{
+    console.log(name)
+    navigate(`/${name}`); 
+  }
+
+  function listItem(item) {
+    return (
+      <div className="listItemDiv"  onClick={()=>handleClickOnSideBarItem(item.title)}>
+        <img src={item.img} className="listItemImg"/>
+        <span className="listItemText">{item.title}</span>
+      </div>
+    );
+  }
+
+  const bottomBarItems = (item) => {
+    return (
+      <div className="bottomItemDiv">
+        <img src={item.img} className="listItemImg" />
+        <span>{item.title} </span>
+      </div>
+    );
+  };
+
   const sideBarData = [
     {
       id: 1,
