@@ -4,6 +4,7 @@ import "./Styles/inventory.css";
 import ProfileIMG from "../assets/profileImg.jpg";
 import { useState } from "react";
 import FilterLine from "../assets/FiltersLines.png";
+import { Link } from "react-router-dom";
 
 function Inventory() {
   const [categories, setCategories] = useState([
@@ -211,7 +212,9 @@ function Inventory() {
           <div className="productNavBar">
             <h3>Products</h3>
             <section className="buttonSection">
-              <button className="addProductBtn">Add Product</button>
+              <Link to="/addProduct">
+                <button className="addProductBtn">Add Product</button>
+              </Link>
               <button className="filterBtn">
                 <img src={FilterLine} className="filterImg" />
                 Filters

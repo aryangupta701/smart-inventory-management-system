@@ -1,0 +1,31 @@
+.Addbutton{
+    background-color: #1366D9;
+    display: block;
+    border-radius: 4px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 44px;
+    border : 1px;
+    margin-block: 20px;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inputBlock{
+    margin: 1rem;
+}
+.addContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin : 5rem 20rem;
+    border: 3px solid #1366D9;
+    border-radius: 1rem;
+    background-color: #acc3e2;
+}
