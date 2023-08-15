@@ -123,6 +123,27 @@ function Inventory() {
   const [pageNo, setPageNo] = useState(1);
   const [totalPage, setTotalPage] = useState(10);
 
+  const [allProducts, setAllProducts] = useState([]);
+  function getProducts() {
+    fetch(`http://localhost:3001/product`, {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(),
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          setAllProducts(data);
+        });
+      } else {
+        alert("Something went wrong");
+      }
+    });
+  }
+  getProducts();
+
   return (
     <div className="mainContainer">
       <SideBar />
@@ -223,29 +244,25 @@ function Inventory() {
             </section>
           </div>
           <div className="listHeader">
-            <span>Products</span>
-            <span>Buying Price</span>
-            <span>Quantity</span>
-            <span>Threshold Value</span>
-            <span>Expiry date</span>
-            <span>Availity</span>
+            <span>Product Type</span>
+            <span>Store</span>
+            <span>Store Department</span>
+            <span>Product Stock</span>
           </div>
-          {products.map((item) => {
+          {allProducts.map((item) => {
             return (
               <>
                 <div className="productMap">
-                  <span>{item.product}</span>
-                  <span>{item.buyingPrice}</span>
-                  <span>{item.quantity}</span>
-                  <span>{item.threshHoldValue}</span>
-                  <span>{item.expiryDate}</span>
-                  <span>{item.availiblity}</span>
+                  <span>{item.type}</span>
+                  <span>{item.store}</span>
+                  <span>{item.dept}</span>
+                  <span>{item.size}</span>
                 </div>
                 <div className="line"></div>
               </>
             );
           })}
-          <div className="bottomBar">
+          {/* <div className="bottomBar">
             <button
               onClick={() => (pageNo - 1 > 0 ? setPageNo(pageNo - 1) : null)}
             >
@@ -261,7 +278,7 @@ function Inventory() {
             >
               Next
             </button>
-          </div>
+          </div> */}
         </section>
       </div>
     </div>
