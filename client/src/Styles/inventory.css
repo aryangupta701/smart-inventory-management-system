@@ -66,7 +66,7 @@
 }
 .productSection{
     background-color: #FFFFFF;
-    margin-inline: 20px;
+    margin-inline: 30px;
     width: 100%;
     border-radius: 7px;
     height: 65%;
@@ -113,7 +113,7 @@
     align-self: center;
 }
 .listHeader{
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     padding-inline: 15px;
@@ -122,7 +122,7 @@
     height: 25px;
 }
 .productMap{
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     padding-inline: 15px;

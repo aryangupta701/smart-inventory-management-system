@@ -16,7 +16,6 @@
       "indent": ["error", 2],
       "quotes": ["error", "double"],
       "semi": ["error", "always"],
-      "comma-dangle": ["error", "always-multiline"],
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-non-null-assertion": "error",
