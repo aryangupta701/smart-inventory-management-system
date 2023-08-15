@@ -1,5 +1,5 @@
 import NavInput from "../components/NavInput";
-import SideBar from "../components/sideBar";
+import SideBar from "./sideBar";
 import "./Styles/inventory.css";
 import ProfileIMG from "../assets/profileImg.jpg";
 import { useState } from "react";

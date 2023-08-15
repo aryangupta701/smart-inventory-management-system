@@ -8,12 +8,6 @@ import Inventory from "./Inventory.jsx";
 import AddProduct from "./AddProduct.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    {/* <LogIn />
-    <SignUp />
-    <Dashboard /> 
-    {/* <Inventory /> */}
-    {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LogIn />} />
@@ -22,7 +16,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="SignUp" element={<SignUp />} />
           <Route path="addProduct" element={<AddProduct />} />
         </Routes>
-      </BrowserRouter>
-    }
-  </React.StrictMode>
+      </BrowserRouter>  
 );
