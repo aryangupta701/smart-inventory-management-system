@@ -149,3 +149,9 @@
     width: 100%;
     height: 2px;
 }
+.listHeaderSpan{
+    width: 25%;
+}
+.productMapSpan{
+    width: 5%;
+}

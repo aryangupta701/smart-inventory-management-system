@@ -99,6 +99,7 @@
 .saleInventoryArticle{
     display: flex;
     flex-direction: row;
+    height: 100%;
     width: 100%;
     justify-content: space-around;
     margin-block: 10px;
@@ -134,7 +135,7 @@ margin-top: 10px;
     /* flex-wrap: wrap; */
 }
 .barGraph{
-    height: 360px;
+    height: 80%;
     width: 100%;
     background-color: white;
     padding-inline: 20px;
@@ -150,6 +151,9 @@ margin-top: 10px;
     justify-content: space-between;
     margin-block: 10px;
     height: 25px;
+}
+.listHeaderSpan{
+    width: 20%;
 }
 
 .topSellingSection{
@@ -270,4 +274,7 @@ margin-top: 10px;
   
   .logoDashboard{
     width: 12vw;
+  }
+  .stockSpan{
+    width: 20%;
   }
