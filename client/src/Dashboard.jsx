@@ -221,7 +221,7 @@ function Dashboard() {
   ]);
 
   const [allProducts, setAllProducts] = useState([]);
-  const [loadModelData, setLoadModelData] = useState(false); 
+  const [loadModelData, setLoadModelData] = useState(false);
 
   function getProducts() {
     fetch(`http://localhost:3001/product`, {
@@ -235,7 +235,7 @@ function Dashboard() {
       if (res.status === 200) {
         res.json().then((data) => {
           setAllProducts(data);
-          setLoadModelData(true); 
+          setLoadModelData(true);
         });
       } else {
         alert("Something went wrong");
@@ -243,35 +243,34 @@ function Dashboard() {
     });
   }
 
-  useEffect(()=>{
-    getProducts(); 
-  }, [])
+  useEffect(() => {
+    getProducts();
+  }, []);
 
-  const [predictedStock, setPredictedStock] = useState([])
+  const [predictedStock, setPredictedStock] = useState([]);
 
- function getModelPredictedData(products){
-
+  function getModelPredictedData(products) {
     const data = {
-      products: products.map(item=>{
+      products: products.map((item) => {
         return {
-          ...item, 
-          isholiday: 0, 
+          ...item,
+          isholiday: 0,
           week: 30,
-          year: 2023
-        }
-      })
-    }
+          year: 2023,
+        };
+      }),
+    };
     fetch(`http://localhost:3001/product/predict`, {
       method: "POST",
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
-    }).then(res => {
+      body: JSON.stringify(data),
+    }).then((res) => {
       if (res.status === 200) {
-        res.json().then((data) => { 
-          if(data.success === true){
+        res.json().then((data) => {
+          if (data.success === true) {
             console.log("success");
             setPredictedStock(data.predicted_sales);
             setLoadModelData(false);
@@ -280,7 +279,7 @@ function Dashboard() {
       } else {
         alert("Something went wrong");
       }
-    })
+    });
   }
 
   return (
@@ -294,7 +293,7 @@ function Dashboard() {
             profilePic={ProfileIMG}
           />
         </div>
-        <article className="saleInventoryArticle">
+        {/* <article className="saleInventoryArticle">
           <section className="SalesSection">
             <h3 className="salesText">Sales Overview</h3>
             <div className="salesItemContainer">
@@ -323,41 +322,47 @@ function Dashboard() {
               {productData.map((item) => productSummery(item))}
             </div>
           </section>
-        </article>
+        </article> */}
 
         <article className="saleInventoryArticle">
           <section className="barGraph">
-            <h2 className="forcast-heading">Forecasted Demand Trends: Rising and Falling</h2>
-          <div className="listHeader">
-            <span>Product Type</span>
-            <span>Store</span>
-            <span>Store Department</span>
-            <span>Product Stock</span>
-            <span>Predicted Stock</span>
-          </div>
+            <h2 className="forcast-heading">
+              Forecasted Demand Trends: Rising and Falling
+            </h2>
+            <div className="listHeader">
+              <span>Product Type</span>
+              <span>Store</span>
+              <span>Store Department</span>
+              <span>Product Stock</span>
+              <span>Predicted Stock</span>
+            </div>
             {loadModelData && getModelPredictedData(allProducts)}
 
-
-            {(allProducts.length === predictedStock.length) && allProducts.map((item,index)=>{
-              return (
-              <>
-              <div className="productMap">
-                <span>{item.type}</span>
-                <span>{item.store}</span>
-                <span>{item.dept}</span>
-                <span>{item.size}</span>
-                <span>{parseInt(predictedStock[index], 10)}</span>
-              </div>
-              <div className="line"></div>
-              </>
-              )
-          })}
+            {allProducts.length === predictedStock.length &&
+              allProducts.map((item, index) => {
+                return (
+                  <>
+                    <div className="productMap">
+                      <span>{item.type}</span>
+                      <span>{item.store}</span>
+                      <span>{item.dept}</span>
+                      {item.size > parseInt(predictedStock[index], 10) ? (
+                        <span style={{ color: "green" }}>{item.size}</span>
+                      ) : (
+                        <span style={{ color: "red" }}>{item.size}</span>
+                      )}
+                      <span>{parseInt(predictedStock[index], 10)}</span>
+                    </div>
+                    <div className="line"></div>
+                  </>
+                );
+              })}
           </section>
 
           <section className="curveGraph"></section>
         </article>
 
-        <article className="saleInventoryArticle">
+        {/* <article className="saleInventoryArticle">
           <section className="topSellingSection">
             <div className="sellingStockHeader">
               <h3>Top Selling Stock</h3>
@@ -380,7 +385,7 @@ function Dashboard() {
             </div>
             {lowStock.map((item) => renderLowStockItem(item))}
           </section>
-        </article>
+        </article> */}
       </div>
     </div>
   );
