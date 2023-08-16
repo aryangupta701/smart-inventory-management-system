@@ -18,7 +18,7 @@ function SignUp() {
       body: JSON.stringify({ username, password }),
     }).then((res) => {
       if (res.status === 201) {
-        window.location.href = "/login";
+        window.location.href = "/";
       } else {
         setPassword("");
         setUsername("");
