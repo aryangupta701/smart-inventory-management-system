@@ -152,6 +152,9 @@ margin-top: 10px;
     margin-block: 10px;
     height: 25px;
 }
+.listHeaderSpan{
+    width: 20%;
+}
 
 .topSellingSection{
     height: 300px;
@@ -271,4 +274,7 @@ margin-top: 10px;
   
   .logoDashboard{
     width: 12vw;
+  }
+  .stockSpan{
+    width: 20%;
   }

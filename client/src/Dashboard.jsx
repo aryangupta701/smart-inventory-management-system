@@ -330,11 +330,11 @@ function Dashboard() {
               Forecasted Demand Trends: Rising and Falling
             </h2>
             <div className="listHeader">
-              <span>Product Type</span>
-              <span>Store</span>
-              <span>Store Department</span>
-              <span>Product Stock</span>
-              <span>Predicted Stock</span>
+              <span className="listHeaderSpan">Store</span>
+              <span className="listHeaderSpan">Product Type</span>
+              <span className="listHeaderSpan">Store Department</span>
+              <span className="listHeaderSpan">Product Stock</span>
+              <span className="listHeaderSpan">Predicted Stock</span>
             </div>
             {loadModelData && getModelPredictedData(allProducts)}
 
@@ -343,15 +343,15 @@ function Dashboard() {
                 return (
                   <>
                     <div className="productMap">
-                      <span>{item.type}</span>
-                      <span>{item.store}</span>
-                      <span>{item.dept}</span>
+                      <span className="stockSpan">{item.type}</span>
+                      <span className="stockSpan">{item.store}</span>
+                      <span className="stockSpan">{item.dept}</span>
                       {item.size > parseInt(predictedStock[index], 10) ? (
-                        <span style={{ color: "green" }}>{item.size}</span>
+                        <span style={{ color: "green" }} className="stockSpan">{item.size}</span>
                       ) : (
-                        <span style={{ color: "red" }}>{item.size}</span>
+                        <span style={{ color: "red" }} className="stockSpan">{item.size}</span>
                       )}
-                      <span>{parseInt(predictedStock[index], 10)}</span>
+                      <span className="stockSpan">{parseInt(predictedStock[index], 10)}</span>
                     </div>
                     <div className="line"></div>
                   </>

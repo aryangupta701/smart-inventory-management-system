@@ -244,19 +244,19 @@ function Inventory() {
             </section>
           </div>
           <div className="listHeader">
-            <span>Product Type</span>
-            <span>Store</span>
-            <span>Store Department</span>
-            <span>Product Stock</span>
+            <span className="productListHeaderSpan">Product Type</span>
+            <span className="productListHeaderSpan">Store</span>
+            <span className="productListHeaderSpan">Store Department</span>
+            <span className="productListHeaderSpan">Product Stock</span>
           </div>
           {allProducts.map((item) => {
             return (
               <>
                 <div className="productMap">
-                  <span>{item.type}</span>
-                  <span>{item.store}</span>
-                  <span>{item.dept}</span>
-                  <span>{item.size}</span>
+                  <span className="productMapSpan">{item.type}</span>
+                  <span className="productMapSpan">{item.store}</span>
+                  <span className="productMapSpan">{item.dept}</span>
+                  <span className="productMapSpan">{item.size}</span>
                 </div>
                 <div className="line"></div>
               </>
